@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper and this software archive."
+title: "chitral-fan-screening: fan-based evaluation of Melton-ratio and machine-learning screening of debris-flow and flood catchments in Chitral, Pakistan"
+type: software
+version: 1.0.0
+date-released: 2026-11-07
+license: MIT
+authors:
+  - family-names: Hameed
+    given-names: Aamir
+    orcid: "https://orcid.org/0000-0002-6782-8705"
+    affiliation: "Department of Earth and Geoenvironmental Sciences, University of Bari Aldo Moro, Italy; Department of Earth Sciences, University of Florence, Italy"
+    email: aamir.hameed@uniba.it
+  - family-names: Confuorto
+    given-names: Pierluigi
+    orcid: "https://orcid.org/0000-0003-4291-4604"
+    affiliation: "Department of Earth Sciences, University of Florence, Italy"
+keywords:
+  - debris flow
+  - alluvial fan
+  - Melton ratio
+  - machine learning
+  - spatial cross-validation
+  - Hindu Kush
+  - Chitral
+preferred-citation:
+  type: article
+  title: "Does Machine Learning Improve on the Melton Ratio? A Fan-Based Evaluation of Debris-Flow and Flood Process Screening in Glacierised Catchments of the Hindu Kush, Chitral, Pakistan"
+  authors:
+    - family-names: Hameed
+      given-names: Aamir
+      orcid: "https://orcid.org/0000-0002-6782-8705"
+    - family-names: Confuorto
+      given-names: Pierluigi
+      orcid: "https://orcid.org/0000-0003-4291-4604"
+  journal: "Geomorphology"
+  year: 2026
+  status: submitted

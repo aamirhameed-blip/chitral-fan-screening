@@ -1,0 +1,26 @@
+# Exact versions used for the results in the paper.
+# Create with:  conda env create -f environment.yml   then:  conda activate fanscreen
+name: fanscreen
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy=2.5.4
+  - pandas=3.0.6
+  - scipy=1.18.1
+  - scikit-learn=1.9.1
+  - joblib=1.6.0
+  - geopandas=1.2.0
+  - shapely=2.2.0
+  - rasterio=1.5.2
+  - matplotlib=3.11.2
+  - pytest
+  - ruff
+  # optional, only for step 00 (Sentinel-2 composites)
+  - pystac-client
+  - planetary-computer
+  - odc-stac
+  - dask
+  - pip
+  - pip:
+      - -e .

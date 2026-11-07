@@ -1,0 +1,258 @@
+{
+ "n": {
+  "n": 104,
+  "pos": 68,
+  "blocks20": 39,
+  "blocks30": 23,
+  "blocks50": 12
+ },
+ "raw_rank_auc": {
+  "melton_dem": 0.8852124183006536,
+  "melton_stored": 0.8937908496732027,
+  "length": 0.9015522875816994,
+  "area": 0.8978758169934641
+ },
+ "best_by_mean_auc": "LR|Melton+length",
+ "null_LR_Full": {
+  "n": 500,
+  "mean": 0.48695669934640523,
+  "q95": 0.6157066993464052,
+  "observed": 0.8357,
+  "p": 0.001996007984031936
+ },
+ "null_RF_Full": {
+  "n": 200,
+  "mean": 0.48081086601307194,
+  "q95": 0.6025531045751634,
+  "observed": 0.8751,
+  "p": 0.004975124378109453
+ },
+ "null_LR_Melton": {
+  "n": 500,
+  "mean": 0.43840522875817,
+  "q95": 0.5756944444444443,
+  "observed": 0.8608,
+  "p": 0.001996007984031936
+ },
+ "moran_target": {
+  "I": -0.0545247181646708,
+  "p": 0.97
+ },
+ "moran_LR_Melton_residual": {
+  "I": -0.04654619653557073,
+  "p": 0.925
+ },
+ "moran_LR_Full_residual": {
+  "I": -0.07732604385694808,
+  "p": 0.998
+ },
+ "moran_RF_Full_residual": {
+  "I": -0.056128941218262916,
+  "p": 0.97
+ },
+ "consequence": {
+  "rule_flood_fan_debris": {
+   "n": 15,
+   "houses": 882,
+   "schools": 7,
+   "hospitals": 0,
+   "road_km": 2.2452247382633
+  },
+  "rule_debris_fan_alluvial": {
+   "n": 0,
+   "houses": 0,
+   "schools": 0,
+   "hospitals": 0,
+   "road_km": 0.0
+  },
+  "rule_agree": {
+   "n": 89,
+   "houses": 17904,
+   "schools": 141,
+   "hospitals": 7,
+   "road_km": 40.88145746645916
+  },
+  "model_flood_fan_debris": {
+   "n": 16,
+   "houses": 4491,
+   "schools": 24,
+   "hospitals": 1,
+   "road_km": 2.4922034219282
+  },
+  "model_debris_fan_alluvial": {
+   "n": 6,
+   "houses": 228,
+   "schools": 8,
+   "hospitals": 0,
+   "road_km": 5.463968217470001
+  },
+  "model_agree": {
+   "n": 82,
+   "houses": 14067,
+   "schools": 116,
+   "hospitals": 6,
+   "road_km": 35.170510565324264
+  },
+  "all": {
+   "n": 104,
+   "houses": 18786,
+   "schools": 148,
+   "hospitals": 7,
+   "road_km": 43.12668220472246
+  }
+ },
+ "domain": {
+  "labelled_mean": 0.9003496503496502,
+  "unlabelled_mean": 0.7622377622377623,
+  "unlabelled_ge80": 33,
+  "n_unlabelled": 65
+ },
+ "labelled_vs_unlabelled": {
+  "area_km2": {
+   "false": 20.352,
+   "true": 33.311
+  },
+  "melton": {
+   "false": 0.439,
+   "true": 0.481
+  },
+  "elev_min": {
+   "false": 3461.0,
+   "true": 2380.5
+  },
+  "elev_mean": {
+   "false": 4638.929,
+   "true": 3889.201
+  },
+  "snow_ice_frac": {
+   "false": 0.231,
+   "true": 0.014
+  },
+  "rain_trmm": {
+   "false": 73.373,
+   "true": 73.989
+  },
+  "Houses": {
+   "false": 0.0,
+   "true": 26.0
+  },
+  "road_lengt": {
+   "false": 0.0,
+   "true": 0.078
+  }
+ },
+ "n_code_uncertain": 25,
+ "desc": {
+  "melton": {
+   "count": 104.0,
+   "mean": 0.458,
+   "std": 0.127,
+   "min": 0.111,
+   "25%": 0.361,
+   "50%": 0.481,
+   "75%": 0.57,
+   "max": 0.649
+  },
+  "length_km": {
+   "count": 104.0,
+   "mean": 12.451,
+   "std": 7.07,
+   "min": 4.381,
+   "25%": 7.835,
+   "50%": 11.254,
+   "75%": 15.426,
+   "max": 49.084
+  },
+  "slope_mean": {
+   "count": 104.0,
+   "mean": 31.987,
+   "std": 3.753,
+   "min": 20.439,
+   "25%": 29.794,
+   "50%": 32.901,
+   "75%": 34.58,
+   "max": 39.991
+  },
+  "hypsometric": {
+   "count": 104.0,
+   "mean": 0.512,
+   "std": 0.059,
+   "min": 0.365,
+   "25%": 0.463,
+   "50%": 0.514,
+   "75%": 0.546,
+   "max": 0.635
+  },
+  "elongation": {
+   "count": 104.0,
+   "mean": 0.651,
+   "std": 0.081,
+   "min": 0.436,
+   "25%": 0.598,
+   "50%": 0.646,
+   "75%": 0.716,
+   "max": 0.835
+  },
+  "drainage_density": {
+   "count": 104.0,
+   "mean": 2.882,
+   "std": 0.326,
+   "min": 2.02,
+   "25%": 2.65,
+   "50%": 2.904,
+   "75%": 3.106,
+   "max": 3.635
+  },
+  "elev_mean": {
+   "count": 104.0,
+   "mean": 3789.276,
+   "std": 778.464,
+   "min": 1943.732,
+   "25%": 3145.839,
+   "50%": 3889.201,
+   "75%": 4475.049,
+   "max": 5305.341
+  },
+  "snow_ice_frac": {
+   "count": 104.0,
+   "mean": 0.088,
+   "std": 0.122,
+   "min": 0.0,
+   "25%": 0.0,
+   "50%": 0.014,
+   "75%": 0.16,
+   "max": 0.467
+  },
+  "rain_trmm": {
+   "count": 104.0,
+   "mean": 69.242,
+   "std": 13.673,
+   "min": 22.985,
+   "25%": 73.156,
+   "50%": 73.989,
+   "75%": 74.411,
+   "max": 79.052
+  },
+  "crystalline_frac": {
+   "count": 104.0,
+   "mean": 0.332,
+   "std": 0.378,
+   "min": 0.0,
+   "25%": 0.0,
+   "50%": 0.098,
+   "75%": 0.686,
+   "max": 1.0
+  },
+  "fault_density": {
+   "count": 104.0,
+   "mean": 0.048,
+   "std": 0.072,
+   "min": 0.0,
+   "25%": 0.0,
+   "50%": 0.0,
+   "75%": 0.088,
+   "max": 0.312
+  }
+ },
+ "crystalline_missing": 2
+}

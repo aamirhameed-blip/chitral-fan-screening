@@ -1,0 +1,12 @@
+feature,coef_per_sd,lo,hi,sign_stability
+melton,1.46,0.654,2.694,1.0
+length_km,-1.162,-1.794,-0.781,1.0
+slope_mean,-0.476,-1.076,0.15,0.934
+hypsometric,0.215,-0.632,0.92,0.722
+elongation,0.331,-0.12,0.734,0.916
+drainage_density,-0.349,-0.852,0.37,0.774
+elev_mean,-0.263,-1.114,0.378,0.798
+snow_ice_frac,1.156,0.611,2.166,1.0
+rain_trmm,0.599,-0.947,1.46,0.646
+crystalline_frac,-0.121,-0.818,0.79,0.55
+fault_density,-0.272,-0.727,0.221,0.86

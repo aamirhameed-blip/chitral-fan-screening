@@ -1,0 +1,22 @@
+{
+  "title": "chitral-fan-screening: data and code for a fan-based evaluation of Melton-ratio and machine-learning screening of debris-flow and flood catchments in Chitral, Pakistan",
+  "upload_type": "software",
+  "description": "<p>Analysis-ready dataset and complete analysis code for the paper <em>Does Machine Learning Improve on the Melton Ratio? A Fan-Based Evaluation of Debris-Flow and Flood Process Screening in Glacierised Catchments of the Hindu Kush, Chitral, Pakistan</em> (Hameed and Confuorto, submitted to Geomorphology).</p><p>The archive contains the 169 catchments of the Chitral district (Hindu Kush, Pakistan) with DEM-derived morphometry, climate, cryosphere and geology predictors and the mapped fan type at each outlet; the code that builds the dataset from the raw GIS layers; the spatial-block cross-validation benchmark of Melton-ratio rules, logistic regression, Random Forest and gradient boosting; the label checks; all results tables; and the figures of the paper.</p><p>Code: MIT licence. Data in data/: CC BY 4.0.</p>",
+  "creators": [
+    {
+      "name": "Hameed, Aamir",
+      "affiliation": "University of Bari Aldo Moro; University of Florence",
+      "orcid": "0000-0002-6782-8705"
+    },
+    {
+      "name": "Confuorto, Pierluigi",
+      "affiliation": "University of Florence",
+      "orcid": "0000-0003-4291-4604"
+    }
+  ],
+  "keywords": ["debris flow", "alluvial fan", "Melton ratio", "machine learning", "spatial cross-validation", "process screening", "Hindu Kush", "Chitral", "Pakistan"],
+  "license": "MIT",
+  "access_right": "open",
+  "language": "eng",
+  "version": "1.0.0"
+}

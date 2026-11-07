@@ -1,0 +1,25 @@
+model,group,drop,lo,hi
+LR,Melton ratio,0.1806,0.1273,0.2309
+LR,Basin length,0.0798,0.0121,0.1344
+LR,Slope,0.0098,-0.0059,0.027
+LR,Hypsometry,-0.0043,-0.0147,0.0047
+LR,Elongation,-0.0019,-0.0127,0.0068
+LR,Drainage density,0.0013,-0.0109,0.0113
+LR,Elevation + snow/ice,0.0412,0.0046,0.0834
+LR,Rainfall,-0.0035,-0.0255,0.0127
+LR,Lithology,-0.0056,-0.022,0.0072
+LR,Fault density,0.005,-0.0051,0.0186
+LR,All morphometry,0.3717,0.2638,0.4488
+LR,All environment,0.0146,-0.0292,0.0622
+RF,Melton ratio,0.1316,0.0786,0.1687
+RF,Basin length,0.0765,0.0142,0.1361
+RF,Slope,-0.0035,-0.0133,0.0041
+RF,Hypsometry,-0.0016,-0.0088,0.0057
+RF,Elongation,-0.0013,-0.0096,0.0053
+RF,Drainage density,-0.0016,-0.0057,0.0033
+RF,Elevation + snow/ice,0.0075,-0.0135,0.0219
+RF,Rainfall,0.0014,-0.0045,0.0057
+RF,Lithology,0.0018,-0.01,0.0121
+RF,Fault density,-0.005,-0.0223,0.009
+RF,All morphometry,0.3589,0.2739,0.4414
+RF,All environment,0.014,-0.0214,0.0386

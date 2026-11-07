@@ -1,0 +1,13 @@
+axis,direction,model,n_train,n_test,auc
+northing,low to high,LR|Melton,52,52,0.811
+northing,low to high,LR|Full,52,52,0.811
+northing,low to high,RF|Full,52,52,0.877
+northing,high to low,LR|Melton,52,52,0.95
+northing,high to low,LR|Full,52,52,0.93
+northing,high to low,RF|Full,52,52,0.955
+easting,low to high,LR|Melton,52,52,0.755
+easting,low to high,LR|Full,52,52,0.726
+easting,low to high,RF|Full,52,52,0.828
+easting,high to low,LR|Melton,52,52,0.984
+easting,high to low,LR|Full,52,52,0.862
+easting,high to low,RF|Full,52,52,0.942

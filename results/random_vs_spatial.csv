@@ -1,0 +1,5 @@
+model,random_auc,spatial_auc
+LR|Melton,0.879,0.861
+LR|Full,0.886,0.836
+RF|Full,0.914,0.875
+GB|Full,0.886,0.838

@@ -1,0 +1,85 @@
+{
+ "fan_gradient": {
+  "dfaa_median": 6.077156853034531,
+  "dfsaa_median": 5.543885887368639,
+  "n_dfaa": 21,
+  "n_dfsaa": 26,
+  "auc": 0.5714285714285714,
+  "p": 0.4100395981614826,
+  "by_code": {
+   "DFAA": 6.08,
+   "DFSA": 5.64,
+   "DFSAA": 5.45,
+   "GDFAA": 7.61,
+   "GDFCAA": 17.59,
+   "GDFSAA": 8.42
+  }
+ },
+ "n_code_polygons": 26,
+ "fan_overlap": {
+  "merged": {
+   "DF": 11,
+   "DFA": 1
+  },
+  "kmz": {
+   "AF": 2,
+   "DF": 1
+  }
+ },
+ "proxy": {
+  "n_valid": 53,
+  "vs_polygon_spearman": 0.474,
+  "p_rho": 0.0003336278598799206,
+  "median_bias_deg": 0.1,
+  "alluvial": {
+   "n": 35,
+   "median": 3.83,
+   "q25": 2.07,
+   "q75": 5.41,
+   "share_lt4": 0.543,
+   "share_lt6": 0.857
+  },
+  "debris": {
+   "n": 68,
+   "median": 5.82,
+   "q25": 3.29,
+   "q75": 7.78,
+   "share_lt4": 0.309
+  },
+  "debris_not_recoded_median": 5.2,
+  "auc_debris_gt_alluvial": 0.668,
+  "p": 0.005525377943491253,
+  "auc_unrecoded_vs_alluvial": 0.622,
+  "p2": 0.06598936706514764,
+  "recoded": {
+   "n": 25,
+   "median": 6.36,
+   "auc_vs_alluvial": 0.746,
+   "p": 0.0012652779317100502
+  },
+  "alluvial_steeper_than_debris_median": 6,
+  "fan_km2_median": {
+   "alluvial": 0.487,
+   "debris": 0.631
+  },
+  "rho_proxy_melton_alluvial": 0.488,
+  "steep_alluvial": {
+   "n": 5,
+   "melton_auc_all": 0.885,
+   "melton_auc_steep_as_debris": 0.863
+  }
+ },
+ "length_check": {
+  "n": 104,
+  "spearman": 0.994,
+  "median_abs_diff_km": 0.08,
+  "auc_stored": 0.098,
+  "auc_polygon": 0.102
+ },
+ "house_check": {
+  "n_footprints": 74206,
+  "spearman": 0.5310990295980991,
+  "stored_total": 18786,
+  "footprint_total": 12937
+ }
+}

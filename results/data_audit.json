@@ -1,0 +1,226 @@
+{
+ "n_catchments": 169,
+ "dem": {
+  "crs": "EPSG:32643",
+  "res_m": 12.5,
+  "nodata": 32767.0,
+  "shape": [
+   15560,
+   19785
+  ],
+  "file": "ChitralDEM/Chitral.tif",
+  "vs_clipped_median_abs_diff_m": 0.0
+ },
+ "streams_n": 146049,
+ "stored_stream_vs_recomputed_spearman": 0.9328028601305753,
+ "recomputed_vs_stored": {
+  "melton_spearman": 0.8062155039530606,
+  "melton_median_abs_diff": 0.011634842818795288,
+  "melton_max_abs_diff": 0.5710833670903326,
+  "relief_km_median_abs_diff": 0.0690000000000004,
+  "area_max_abs_diff_km2": 0.0020863542529241386,
+  "min_dem_coverage": 0.9930853536530994
+ },
+ "trmm": {
+  "n_points": 53,
+  "min": 22.8333,
+  "max": 79.4352,
+  "spacing_km": 22.13327563385472
+ },
+ "s2": {
+  "bands": [
+   "B03",
+   "B04",
+   "B08",
+   "B11",
+   "B12",
+   "count"
+  ],
+  "crs": "EPSG:32643",
+  "res": 20.0,
+  "dtype": "int16",
+  "nodata": -9999.0
+ },
+ "s2_median_dn_by_year": {
+  "2016": {
+   "B03": 1290.319091796875,
+   "B04": 1521.1800537109375,
+   "B08": 1928.2359619140625,
+   "B11": 1947.3896484375
+  },
+  "2017": {
+   "B03": 1265.977294921875,
+   "B04": 1489.9044189453125,
+   "B08": 1804.559326171875,
+   "B11": 1717.788330078125
+  },
+  "2018": {
+   "B03": 1325.84912109375,
+   "B04": 1564.891845703125,
+   "B08": 1978.4310302734375,
+   "B11": 2025.8408203125
+  },
+  "2019": {
+   "B03": 1246.67822265625,
+   "B04": 1482.666015625,
+   "B08": 1853.33056640625,
+   "B11": 1812.066162109375
+  },
+  "2020": {
+   "B03": 1245.0,
+   "B04": 1478.9033203125,
+   "B08": 1925.076416015625,
+   "B11": 1936.866455078125
+  },
+  "2021": {
+   "B03": 1280.40478515625,
+   "B04": 1498.9376220703125,
+   "B08": 1867.2105712890625,
+   "B11": 1947.3336181640625
+  },
+  "2022": {
+   "B03": 1256.7513427734375,
+   "B04": 1442.63037109375,
+   "B08": 1764.04541015625,
+   "B11": 1798.515625
+  },
+  "2023": {
+   "B03": 1266.305419921875,
+   "B04": 1476.8763427734375,
+   "B08": 1839.474609375,
+   "B11": 1770.7421875
+  },
+  "2024": {
+   "B03": 1209.1134033203125,
+   "B04": 1395.944091796875,
+   "B08": 1794.3096923828125,
+   "B11": 1809.273193359375
+  },
+  "2025": {
+   "B03": 1269.0355224609375,
+   "B04": 1481.8631591796875,
+   "B08": 1787.73095703125,
+   "B11": 1813.0845947265625
+  }
+ },
+ "s2_years_used": 10,
+ "s2_min_coverage": 0.5396508728179551,
+ "s2_coverage_lt_90pct": 6,
+ "stored_glacier_vs_ndsi_spearman": 0.9626739071804783,
+ "stored_glacier_gt_100pct": 9,
+ "geology_units": {
+  "Trpw": 4555.6,
+  "GaS": 2926.0,
+  "Kr": 968.8,
+  "Kkb": 858.3,
+  "Tgbg": 814.8,
+  "Kjc": 764.8,
+  "Ktmg": 561.8,
+  "CDs": 430.0,
+  "Tkkg": 372.6,
+  "Kg": 344.0,
+  "DOs": 300.8,
+  "Thsgn": 285.2,
+  "Kkg": 281.3,
+  "Krc": 251.8,
+  "JTRg": 227.9,
+  "Kmkg": 187.5,
+  "Tbzg": 161.0,
+  "Thsg": 109.7,
+  "Kp": 91.0,
+  "unknown": 86.6,
+  "Kd": 56.8,
+  "Tdag": 44.2,
+  "TMa": 30.9,
+  "Tcu": 16.8,
+  "Qa": 16.7
+ },
+ "geology_coverage_min": 0.5569295935054681,
+ "n_faults": 7,
+ "inventory_classes": {
+  "DC": 505,
+  "SS": 311,
+  "DF": 247,
+  "RS": 62,
+  "DFA": 39,
+  "RFA": 37,
+  "AF": 19,
+  "RF": 11,
+  "AF,DF": 3,
+  "DS": 2,
+  "CS": 1,
+  "USS": 1,
+  "SC,DC": 1,
+  "AF+DF": 1
+ },
+ "fan_type_counts": {
+  "none": 65,
+  "Debris Fan Active": 52,
+  "Alluvial Fan Active": 36,
+  "Glacial Debris Fan Active": 15,
+  "Debris Cone Active": 1
+ },
+ "fan_type_counts_db": {
+  "none": 65,
+  "Alluvial Fan Active": 61,
+  "Debris Fan Active": 27,
+  "Glacial Debris Fan Active": 15,
+  "Debris Cone Active": 1
+ },
+ "n_fan_code_recoded": 25,
+ "crosstab_rule_vs_fan": {
+  "Alluvial Fan Active": {
+   "debris_flow": 0,
+   "flood": 36
+  },
+  "Debris Cone Active": {
+   "debris_flow": 0,
+   "flood": 1
+  },
+  "Debris Fan Active": {
+   "debris_flow": 46,
+   "flood": 6
+  },
+  "Glacial Debris Fan Active": {
+   "debris_flow": 7,
+   "flood": 8
+  },
+  "none": {
+   "debris_flow": 40,
+   "flood": 25
+  }
+ },
+ "n_labelled": 104,
+ "n_debris": 68,
+ "total_area_km2": 10446.64816911049,
+ "district_km2": 14702.860095851018,
+ "fan_outlet_check": {
+  "n_fans": 55,
+  "median_dist_m": 3.2132751485929827,
+  "within_250m": 52,
+  "within_1km": 55,
+  "max_dist_m": 637.0691558671364,
+  "touching_one": 51,
+  "touching_two_or_more": 4
+ },
+ "stored_melton_diff_gt_0p1": 29,
+ "rule_label_melton_split": {
+  "debris_flow": {
+   "stored_min": 0.457090022345,
+   "stored_max": 1.45626773242,
+   "dem_min": 0.2658223252171602,
+   "dem_max": 0.9895919898574698
+  },
+  "flood": {
+   "stored_min": 0.111303276758,
+   "stored_max": 0.459467696396,
+   "dem_min": 0.1110586281325757,
+   "dem_max": 0.6186675160675764
+  }
+ },
+ "missing": {
+  "D_F_Type": 65,
+  "y_debris": 65
+ },
+ "crystalline_missing": 2
+}
