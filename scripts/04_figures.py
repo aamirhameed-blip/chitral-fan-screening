@@ -16,12 +16,13 @@ import pandas as pd
 import rasterio
 from matplotlib.colors import LightSource, LinearSegmentedColormap
 from matplotlib.lines import Line2D
-from matplotlib.patches import FancyArrowPatch, FancyBboxPatch, Patch
+from matplotlib.patches import Patch
 from sklearn.metrics import roc_curve
 
 from fanscreen.config import DATA, FIGURES, RESULTS
 from fanscreen.models import MODEL_NAMES
-from fanscreen.plotting import AQUA, BLUE, GRID, INK, MUTED, NAVY, ORANGE, VIOLET, panel_letter, save, use_style
+from fanscreen.plotting import AQUA, BLUE, GRID, INK, MUTED, ORANGE, VIOLET, panel_letter, save, use_style
+from fanscreen.workflow import HEIGHT, WIDTH, draw_workflow
 
 warnings.filterwarnings("ignore")
 use_style()
@@ -98,264 +99,21 @@ def fig01_study_area() -> None:
 
 
 def fig02_workflow() -> None:
-    """Six-stage workflow: each box gives a title, its purpose (italic) and its content."""
-    n_pos, n_neg = int((labelled.y_debris == 1).sum()), int((labelled.y_debris == 0).sum())
-    stages = [  # (label, edge colour, purpose colour, box height, arrows between boxes in the row, boxes)
-        (
-            "1  Data",
-            "#1e88e5",
-            INK,
-            13.2,
-            False,
-            [
-                (
-                    "Catchment database",
-                    "Units of analysis",
-                    f"{audit['n_catchments']} catchments (ArcGIS, 2021)\nstored morphometry and\nlegacy hazard labels",
-                ),
-                (
-                    "Terrain",
-                    "Relief, slope and drainage",
-                    f"12.5 m ALOS PALSAR DEM\n{audit['streams_n']:,} stream lines",
-                ),
-                (
-                    "Imagery and climate",
-                    "Cryosphere and rainfall",
-                    "Sentinel-2 L2A, 2016–2025\nTRMM rainfall, 2010–2019",
-                ),
-                (
-                    "Geology and fans",
-                    "Lithology and reference fans",
-                    "GSP geology and faults\nfan map digitised from\nGoogle Earth imagery",
-                ),
-            ],
-        ),
-        (
-            "2  Audit",
-            "#f4511e",
-            INK,
-            13.2,
-            True,
-            [
-                (
-                    "Audit stored attributes",
-                    "Can the stored values be trusted?",
-                    f"{audit['stored_melton_diff_gt_0p1']} of {audit['n_catchments']} Melton ratios differ\nfrom the DEM by more than 0.1;\nlegacy labels are formula-based",
-                ),
-                (
-                    "Correct fan codes",
-                    "Fix debris fans stored as alluvial",
-                    f"DFSAA and DFSA recoded as\ndebris fans in {res['n_code_uncertain']} catchments,\nconfirmed by the map author",
-                ),
-                (
-                    "Define independent target",
-                    "Reference not built from predictors",
-                    f"Debris-dominated fan = 1 (n = {n_pos})\nAlluvial fan = 0 (n = {n_neg})\n{n_pos + n_neg} labelled catchments",
-                ),
-            ],
-        ),
-        (
-            "3  Predictors",
-            "#2e9b3f",
-            INK,
-            13.2,
-            False,
-            [
-                (
-                    "Morphometric (6)",
-                    "Basin shape and steepness",
-                    "Melton ratio, basin length,\nmean slope, hypsometric integral,\nelongation, drainage density",
-                ),
-                (
-                    "Environmental (5)",
-                    "Climate, cryosphere and geology",
-                    "Mean elevation, snow and ice\nfraction, rainfall field, crystalline\nfraction, fault density",
-                ),
-                (
-                    "Six predictor sets",
-                    "Isolate what adds skill",
-                    "Melton; Melton + length;\nmorphometric; environmental;\nfull 11; full without Melton",
-                ),
-            ],
-        ),
-        (
-            "4  Benchmark",
-            "#1e88e5",
-            NAVY,
-            13.2,
-            False,
-            [
-                (
-                    "Fixed rules (no fitting)",
-                    "Baselines used in practice",
-                    "Melton > 0.30, 0.46 and 0.60\nWilford-type debris-flow field\nlegacy 2021 rule label",
-                ),
-                (
-                    "Statistical models",
-                    "Does learning add skill?",
-                    "Logistic regression (LR), Random\nForest (RF), gradient boosting (GB)\nwith fixed, untuned settings",
-                ),
-            ],
-        ),
-        (
-            "5  Validation",
-            "#7b1fa2",
-            NAVY,
-            11.4,
-            False,
-            [
-                (
-                    "Spatially blocked cross-validation",
-                    "Estimate skill in unseen areas, not in neighbouring catchments",
-                    "Five folds of 30 km blocks · 30 repartitions · AUC with block-bootstrap 95% intervals\npaired AUC gain over the Melton ratio · label-permutation null",
-                )
-            ],
-        ),
-        (
-            "6  Analysis",
-            "#e0a800",
-            INK,
-            13.2,
-            False,
-            [
-                (
-                    "Robustness",
-                    "Do the results hold?",
-                    "Block size, labels and inputs;\ngeographic transfer;\nMoran's I of residuals",
-                ),
-                (
-                    "Process interpretation",
-                    "What separates the fan types?",
-                    "Group contrasts, coefficients,\nheld-out permutation importance,\npartial dependence",
-                ),
-                (
-                    "Screening consequences",
-                    "What changes in practice?",
-                    "Disagreement with mapped fans,\nexposed assets,\ndomain of applicability",
-                ),
-            ],
-        ),
-    ]
-    gap_rows, x0, x1 = 4.6, 11.7, 99.2
-    height = sum(s[3] for s in stages) + gap_rows * len(stages) + 8.2
-    fig, ax = plt.subplots(figsize=(7.4, 7.4 * height / 100))
-    ax.axis("off")
-    ax.set_xlim(0, 100)
-    ax.set_ylim(0, height)
+    """Study workflow; shaded boxes mark the tests of label quality and of the gain over the Melton ratio."""
+    melton = bench.set_index("name").loc["LR|Melton"]
+    fig, ax = plt.subplots(figsize=(7.0, 7.0 * HEIGHT / WIDTH))
     fig.subplots_adjust(0, 0, 1, 1)
-
-    def arrow(a, b, colour=INK):
-        ax.add_patch(
-            FancyArrowPatch(
-                a, b, arrowstyle="-|>", mutation_scale=8, color=colour, lw=0.9, shrinkA=0, shrinkB=0, zorder=3
-            )
-        )
-
-    top, prev = height - 1.2, None
-    for label, edge, purpose_colour, h, chain, boxes in stages:
-        y = top - h
-        ax.add_patch(
-            FancyBboxPatch(
-                (0, y - 1.1),
-                100,
-                h + 2.2,
-                boxstyle="round,pad=0,rounding_size=1.4",
-                fc="none",
-                ec=NAVY,
-                lw=0.8,
-                ls=(0, (4, 2.5)),
-                zorder=0,
-            )
-        )
-        ax.add_patch(
-            FancyBboxPatch(
-                (0.8, y), 9.4, h, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec=edge, lw=1.3, zorder=1
-            )
-        )
-        ax.text(
-            5.5,
-            y + h / 2,
-            label,
-            rotation=90,
-            ha="center",
-            va="center",
-            color=INK,
-            fontweight="bold",
-            fontsize=7.4,
-            zorder=2,
-        )
-        gap = 3.4 if chain else 2.2
-        w = (x1 - x0 - gap * (len(boxes) - 1)) / len(boxes)
-        xs = [x0 + k * (w + gap) for k in range(len(boxes))]
-        for x, (title, purpose, body) in zip(xs, boxes):
-            ax.add_patch(
-                FancyBboxPatch(
-                    (x, y), w, h, boxstyle="round,pad=0,rounding_size=1.0", fc="white", ec=edge, lw=1.3, zorder=1
-                )
-            )
-            ax.text(
-                x + w / 2,
-                y + h - 1.3,
-                title,
-                ha="center",
-                va="top",
-                fontweight="bold",
-                fontsize=7.6,
-                color=INK,
-                zorder=2,
-            )
-            ax.text(
-                x + w / 2,
-                y + h - 4.1,
-                purpose,
-                ha="center",
-                va="top",
-                style="italic",
-                fontsize=6.6,
-                color=purpose_colour,
-                zorder=2,
-            )
-            ax.text(
-                x + w / 2, y + h - 6.9, body, ha="center", va="top", fontsize=6.6, color=INK, linespacing=1.35, zorder=2
-            )
-        if chain:
-            for x in xs[1:]:
-                arrow((x - gap + 0.3, y + h / 2), (x - 0.3, y + h / 2), "#e53935")
-        if prev:
-            pxs, pw, py = prev
-            if len(pxs) == 1 or len(xs) == 1:  # fan out from, or into, a single wide box
-                sources = [px + pw / 2 for px in pxs] if len(pxs) > 1 else [x + w / 2 for x in xs]
-                targets = [x + w / 2 for x in xs] if len(xs) > 1 else sources
-                for s, t in zip(sources, targets):
-                    arrow((s, py - 0.2), (t, top + 0.2))
-            else:
-                arrow(((x0 + x1) / 2, py - 0.2), ((x0 + x1) / 2, top + 0.2))
-        prev = (xs, w, y)
-        top = y - gap_rows
-
-    # key-result strip
-    y = 0.4
-    h = top - y
-    ax.add_patch(
-        FancyBboxPatch((0, y), 100, h, boxstyle="round,pad=0,rounding_size=1.2", fc="white", ec=INK, lw=1.3, zorder=1)
+    draw_workflow(
+        ax,
+        n_catchments=len(g),
+        n_melton_diff=audit["stored_melton_diff_gt_0p1"],
+        n_recoded=res["n_code_uncertain"],
+        n_debris=int((labelled.y_debris == 1).sum()),
+        n_alluvial=int((labelled.y_debris == 0).sum()),
+        melton_auc=(melton.auc, melton.auc_lo, melton.auc_hi),
+        rf_auc=bench.set_index("name").loc["RF|Full", "auc"],
+        gb_auc=bench.set_index("name").loc["GB|Full", "auc"],
     )
-    b = bench.set_index("name")
-    m = b.loc["LR|Melton"]
-    ax.text(
-        50,
-        y + h / 2,
-        f"Key result:  Melton ratio alone (LR) reaches AUC {m.auc:.2f} ({m.auc_lo:.2f}–{m.auc_hi:.2f}); "
-        f"RF ({b.loc['RF|Full', 'auc']:.2f}) and GB ({b.loc['GB|Full', 'auc']:.2f}) give no resolved gain",
-        ha="center",
-        va="center",
-        color=INK,
-        fontsize=7.2,
-        fontweight="bold",
-        zorder=2,
-    )
-    pxs, pw, py = prev
-    for px in pxs:
-        arrow((px + pw / 2, py - 0.2), (px + pw / 2, top + 0.2))
     save(fig, FIGURES, "Fig02_workflow")
 
 

@@ -5,6 +5,7 @@ type: software
 version: 1.0.0
 date-released: 2026-11-07
 license: MIT
+repository-code: "https://github.com/aamirhameed-blip/chitral-fan-screening"
 authors:
   - family-names: Hameed
     given-names: Aamir

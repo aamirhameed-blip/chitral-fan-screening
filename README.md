@@ -1,5 +1,7 @@
 # chitral-fan-screening
 
+[![tests](https://github.com/aamirhameed-blip/chitral-fan-screening/actions/workflows/tests.yml/badge.svg)](https://github.com/aamirhameed-blip/chitral-fan-screening/actions/workflows/tests.yml)
+
 Data and code for the paper
 
 > Hameed, A., Confuorto, P. *Does Machine Learning Improve on the Melton Ratio? A Fan-Based Evaluation of Debris-Flow and Flood Process Screening in Glacierised Catchments of the Hindu Kush, Chitral, Pakistan.* Submitted to *Geomorphology*.
@@ -13,7 +15,7 @@ The Melton ratio (basin relief divided by the square root of basin area) is wide
 ```
 chitral-fan-screening/
 ├── data/                     analysis-ready data (CC BY 4.0), described in data/README.md
-├── src/fanscreen/            reusable code: settings, predictors, models, validation, statistics, plotting
+├── src/fanscreen/            reusable code: settings, predictors, models, validation, statistics, plotting, workflow diagram
 ├── scripts/                  the analysis, one numbered step per script
 │   ├── 00_sentinel2_composites.py   optional: annual Sentinel-2 composites   [downloads imagery]
 │   ├── 01_build_catchments.py       raw GIS layers -> data/                   [needs raw data]
@@ -29,9 +31,11 @@ chitral-fan-screening/
 
 ## Installation
 
-Install [Miniforge](https://github.com/conda-forge/miniforge) or Anaconda, then from the repository folder:
+Install [Miniforge](https://github.com/conda-forge/miniforge) or Anaconda, then:
 
 ```bash
+git clone https://github.com/aamirhameed-blip/chitral-fan-screening.git
+cd chitral-fan-screening
 conda env create -f environment.yml
 conda activate fanscreen
 ```
