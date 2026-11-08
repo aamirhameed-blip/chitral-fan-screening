@@ -84,7 +84,7 @@ def draw_workflow(
             f"{n_catchments} catchments (ArcGIS, 2021);\nstored morphometry and\nlegacy hazard labels",
         ),
         (28.5, "Terrain", "12.5 m ALOS PALSAR DEM;\nstream network"),
-        (52.0, "Imagery and climate", "Sentinel-2 L2A, 2016–2025;\nTRMM rainfall, 2010–2019"),
+        (52.0, "Imagery and climate", "Sentinel-2 L2A, 2016-2025;\nTRMM rainfall, 2010-2019"),
         (75.5, "Geology and fan map", "GSP geology and faults;\nfans digitised from\nGoogle Earth imagery"),
     ]
     centres = [c.box(x, by, 21.5, 9.5, title, body, data=True) for x, title, body in inputs]
@@ -267,7 +267,7 @@ def draw_workflow(
     ax.text(
         46,
         ky + kh / 2 - 1.3,
-        f"Melton ratio alone: AUC {auc:.2f} ({lo:.2f}–{hi:.2f}); Random Forest ({rf_auc:.2f}) and\n"
+        f"Melton ratio alone: AUC {auc:.2f} ({lo:.2f}-{hi:.2f}); Random Forest ({rf_auc:.2f}) and\n"
         f"gradient boosting ({gb_auc:.2f}) give no resolved gain under any label treatment",
         ha="center",
         va="center",
