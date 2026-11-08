@@ -1,6 +1,7 @@
 # chitral-fan-screening
 
 [![tests](https://github.com/aamirhameed-blip/chitral-fan-screening/actions/workflows/tests.yml/badge.svg)](https://github.com/aamirhameed-blip/chitral-fan-screening/actions/workflows/tests.yml)
+[![DOI](https://zenodo.org/badge/1449967140.svg)](https://doi.org/10.5281/zenodo.24047827)
 
 Data and code for the paper
 
@@ -89,7 +90,11 @@ Code: [MIT](LICENSE). Data in `data/`: [CC BY 4.0](data/LICENSE).
 
 ## Citation
 
-Please cite the paper and the archived release of this repository. Citation metadata are in [CITATION.cff](CITATION.cff); GitHub shows them under *Cite this repository*.
+Please cite the paper and the archived release of this repository:
+
+> Hameed, A., Confuorto, P. (2026). *chitral-fan-screening: data and code for a fan-based evaluation of Melton-ratio and machine-learning screening of debris-flow and flood catchments in Chitral, Pakistan* (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.24047828
+
+The DOI [10.5281/zenodo.24047827](https://doi.org/10.5281/zenodo.24047827) always resolves to the latest release. Citation metadata are in [CITATION.cff](CITATION.cff); GitHub shows them under *Cite this repository*.
 
 ## Contact
 
